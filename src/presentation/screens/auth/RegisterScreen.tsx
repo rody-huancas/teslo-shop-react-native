@@ -18,8 +18,6 @@ export const RegisterScreen = ({ navigation }: Props) => {
   const { height } = useWindowDimensions();
 
   const onRegister = async () => {
-    console.log(form)
-
     if (form.email.length === 0 || form.password.length === 0 || form.fullName.length === 0) {
       Alert.alert('Error', 'Todos los campos son obligatorios');
       return;
