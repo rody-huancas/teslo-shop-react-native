@@ -65,8 +65,6 @@ export const LoginScreen = ({ navigation }: Props) => {
           />
         </Layout>
 
-        <Text>{JSON.stringify(form, null, 2)}</Text>
-
         {/* Space */}
         <Layout style={{ height: 20 }} />
 
@@ -75,7 +73,7 @@ export const LoginScreen = ({ navigation }: Props) => {
           <Button
             accessoryRight={MyIcon({ name: 'arrow-forward-outline', white: true })}
             onPress={onLogin}
-            // disabled={isPosting}
+            disabled={isPosting}
           >
             Ingresar
           </Button>
