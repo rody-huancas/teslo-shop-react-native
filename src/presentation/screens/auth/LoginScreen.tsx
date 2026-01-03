@@ -50,7 +50,7 @@ export const LoginScreen = ({ navigation }: Props) => {
             autoCapitalize="none"
             value={form.email}
             onChangeText={(email) => setForm({ ...form, email })}
-            accessoryLeft={MyIcon({ name: 'email-outline', white: true })}
+            accessoryLeft={MyIcon({ name: 'email-outline' })}
             style={{ marginBottom: 10 }}
           />
 
@@ -60,7 +60,7 @@ export const LoginScreen = ({ navigation }: Props) => {
             secureTextEntry
             value={form.password}
             onChangeText={(password) => setForm({ ...form, password })}
-            accessoryLeft={MyIcon({ name: 'lock-outline', white: true })}
+            accessoryLeft={MyIcon({ name: 'lock-outline' })}
             style={{ marginBottom: 10 }}
           />
         </Layout>
