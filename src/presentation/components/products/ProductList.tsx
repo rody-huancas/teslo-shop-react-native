@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Layout, List } from '@ui-kitten/components';
+import { useQueryClient } from '@tanstack/react-query';
 import { RefreshControl } from 'react-native-gesture-handler';
 import { Product } from '../../../domain/entities/product';
 import { ProductCard } from './ProductCard';
@@ -10,11 +11,16 @@ interface Props {
 }
 
 export const ProductList = ({ products, fetchNextPage }: Props) => {
+  const queryClient  = useQueryClient();
+
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false)
 
   const onPullToRefresh = async () => {
     setIsRefreshing(true);
-    await new Promise(resolve => setTimeout(() => resolve(undefined), 1500));
+    await new Promise(resolve => setTimeout(() => resolve(undefined), 200));
+
+    queryClient.invalidateQueries({ queryKey: ['products', 'infinite'] });
+
     setIsRefreshing(false);
   }
 
